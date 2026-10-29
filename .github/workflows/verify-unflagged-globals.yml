@@ -1,0 +1,31 @@
+name: Verify Node globals fix
+on:
+  push:
+    branches: [verify/589-unflagged-node-globals-v2]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 88f8dfda90cfcb9eb885554f60c9f64fe94dd04f
+      - run: test "$(git rev-parse HEAD)" = "88f8dfda90cfcb9eb885554f60c9f64fe94dd04f"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install
+      - run: npm test
+  formatting:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 88f8dfda90cfcb9eb885554f60c9f64fe94dd04f
+      - run: test "$(git rev-parse HEAD)" = "88f8dfda90cfcb9eb885554f60c9f64fe94dd04f"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install
+      - run: npx prettier --check lib/unsupported-features/types.js lib/unsupported-features/node-globals.js lib/util/check-unsupported-builtins.js lib/rules/no-unsupported-features/node-builtins.js tests/lib/rules/no-unsupported-features/node-builtins.js
