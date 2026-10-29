@@ -9,8 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 88f8dfda90cfcb9eb885554f60c9f64fe94dd04f
-      - run: test "$(git rev-parse HEAD)" = "88f8dfda90cfcb9eb885554f60c9f64fe94dd04f"
+          ref: cde3ef7d045a0df60584c21bb7a94736106281e7
+      - run: test "$(git rev-parse HEAD)" = "cde3ef7d045a0df60584c21bb7a94736106281e7"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -22,8 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 88f8dfda90cfcb9eb885554f60c9f64fe94dd04f
-      - run: test "$(git rev-parse HEAD)" = "88f8dfda90cfcb9eb885554f60c9f64fe94dd04f"
+          ref: cde3ef7d045a0df60584c21bb7a94736106281e7
+      - run: test "$(git rev-parse HEAD)" = "cde3ef7d045a0df60584c21bb7a94736106281e7"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
