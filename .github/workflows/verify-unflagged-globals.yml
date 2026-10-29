@@ -9,8 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: cde3ef7d045a0df60584c21bb7a94736106281e7
-      - run: test "$(git rev-parse HEAD)" = "cde3ef7d045a0df60584c21bb7a94736106281e7"
+          ref: aa0f58e65788938d92cfe9f7c348df068311977d
+      - run: test "$(git rev-parse HEAD)" = "aa0f58e65788938d92cfe9f7c348df068311977d"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -22,12 +22,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: cde3ef7d045a0df60584c21bb7a94736106281e7
-      - run: test "$(git rev-parse HEAD)" = "cde3ef7d045a0df60584c21bb7a94736106281e7"
+          ref: aa0f58e65788938d92cfe9f7c348df068311977d
+      - run: test "$(git rev-parse HEAD)" = "aa0f58e65788938d92cfe9f7c348df068311977d"
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
       - run: npm install
-      - run: npx prettier --write lib/util/check-unsupported-builtins.js
-      - run: git diff -- lib/util/check-unsupported-builtins.js
       - run: npx prettier --check lib/unsupported-features/types.js lib/unsupported-features/node-globals.js lib/util/check-unsupported-builtins.js lib/rules/no-unsupported-features/node-builtins.js tests/lib/rules/no-unsupported-features/node-builtins.js
