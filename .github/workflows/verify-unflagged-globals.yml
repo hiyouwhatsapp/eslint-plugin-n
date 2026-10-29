@@ -28,4 +28,6 @@ jobs:
         with:
           node-version: "22"
       - run: npm install
+      - run: npx prettier --write lib/util/check-unsupported-builtins.js
+      - run: git diff -- lib/util/check-unsupported-builtins.js
       - run: npx prettier --check lib/unsupported-features/types.js lib/unsupported-features/node-globals.js lib/util/check-unsupported-builtins.js lib/rules/no-unsupported-features/node-builtins.js tests/lib/rules/no-unsupported-features/node-builtins.js
